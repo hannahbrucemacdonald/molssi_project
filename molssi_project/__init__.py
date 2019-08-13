@@ -7,7 +7,6 @@ temp
 from .molssi_project import *
 from . import math
 
-
 # Handle versioneer
 from ._version import get_versions
 versions = get_versions()

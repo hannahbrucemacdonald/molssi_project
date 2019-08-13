@@ -7,6 +7,7 @@ import molssi_project
 import pytest
 import sys
 
+
 def test_molssi_project_imported():
     """Sample test, will always pass so long as import statement worked"""
     assert "molssi_project" in sys.modules

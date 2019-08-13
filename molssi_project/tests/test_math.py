@@ -1,8 +1,6 @@
+import pytest
 import molssi_project as mp
-import numpy as np
 
-def test_euler(tolerance=0.01):
-    e = 2.718281
-    assert (mp.math.euler(0) == 0 ), 'Euler function is broken for n=0' 
-    assert (mp.math.euler(1) == 1 ), 'Euler function is broken for n=1' 
-    assert (np.abs(mp.math.euler(10) - e) < tolerance), f'Calculation of e is outside of tolerance {tolerance}'
+@pytest.mark.parametrize('n, answer', [(0,0.), (1, 1.), (2, 2.), (3, 2.5)])
+def test_euler(n, answer):
+    assert (mp.math.euler(n) == answer), 'Euler function for {n} does not match expected answer {answer}'

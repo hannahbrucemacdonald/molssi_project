@@ -12,5 +12,7 @@ def test_euler_failures():
         mp.math.euler(-1)
 
 
-def test_pi(n=100):
-    assert (mp.math.euler(n) == pytest.approx(np.pi,abs=2)), 'Calculated value of pi is not within tolerance of right answer'
+def test_pi(n=10000):
+    np.random.seed(0)
+    assert (mp.math.pi(n) == pytest.approx(np.pi,abs=2)), 'Calculated value of pi is not within tolerance of right answer'
+    assert (mp.math.pi(n) == pytest.approx(3.1544,abs=1.e-4)), 'Calculated value of pi is not within tolerance of right answer'

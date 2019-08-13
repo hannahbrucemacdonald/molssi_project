@@ -1,5 +1,6 @@
 import pytest
 import molssi_project as mp
+import numpy as np
 
 @pytest.mark.parametrize('n, answer', [(0,0.), (1, 1.), (2, 2.), (3, 2.5),(4,2.667)])
 def test_euler(n, answer):
@@ -9,3 +10,7 @@ def test_euler(n, answer):
 def test_euler_failures():
     with pytest.raises(ValueError):
         mp.math.euler(-1)
+
+
+def test_pi(n=100):
+    assert (mp.math.euler(n) == pytest.approx(np.pi,abs=2)), 'Calculated value of pi is not within tolerance of right answer'
